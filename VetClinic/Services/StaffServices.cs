@@ -40,7 +40,7 @@ namespace VetClinic.Services
             return false;
         }
 
-        // login
+        // Staff login
         public bool StaffLogin(string username,string password)
         {
             List<Staff> all = repo.sLoadAll();
