@@ -31,8 +31,8 @@ sm.show();
 // FUNCTION TESTING
 //Staff s = new Staff();
 //StaffServices ss = new StaffServices();
-//PetServices ps = new PetServices(); //iske thru we can access anything from service layer
-//Pet p = new Pet();
+PetServices ps = new PetServices(); //iske thru we can access anything from service layer
+Pet p = new Pet();
 //Console.WriteLine("enter pet name ");          //line 7-14 adds the pet
 //p.SetName(Console.ReadLine());
 //Console.WriteLine("enter pet age ");
@@ -288,3 +288,11 @@ sm.show();
 //{
 //    Console.WriteLine("wrong username/password");
 //}
+
+//min and max
+
+//Console.WriteLine("Enter lowest value: ");
+//int min = int.Parse(Console.ReadLine());
+//Console.WriteLine("Enter max value: ");
+//int max = int.Parse(Console.ReadLine());
+//List<Pet> all = ps.MinAndMax(min, max);

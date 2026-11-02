@@ -125,5 +125,14 @@ namespace VetClinic.Models
         {
             return $"{Name},{Age},{Breed},{OwnerName},{Disease},{AppointmentDate},{Treatment},{TotalBill},{VisitCount},{AssignedVet}";
         }
+
+        // i can use this incase to print only age same goes from partial search and and category one rn not needed as i have to print whole record
+        //public string tostring()
+        //{
+        //    return $"{Age}";
+        //}
+
+
+
     }
 }

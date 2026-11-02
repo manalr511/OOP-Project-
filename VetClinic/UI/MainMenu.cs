@@ -10,7 +10,7 @@ namespace VetClinic.UI
     {
         private PetServices service;
         private StaffServices services;
-        
+
         public MainMenu()
         {
             service = new PetServices();
@@ -43,7 +43,7 @@ namespace VetClinic.UI
                     {
                         Console.Clear();
                         Console.WriteLine("Welcome to Admin Menu");
-                        AdminMenu am= new AdminMenu();
+                        AdminMenu am = new AdminMenu();
                         am.show();
 
 
@@ -53,7 +53,7 @@ namespace VetClinic.UI
                         Console.WriteLine("Wrong login details");
                     }
                     Console.ReadKey();
-   
+
 
                 }
                 else if (choice == "2")
@@ -63,7 +63,7 @@ namespace VetClinic.UI
                     string username = Console.ReadLine();
                     Console.Write("Enter Staff Password: ");
                     string password = Console.ReadLine();
-                    bool loggedIn = services.StaffLogin(username,password);
+                    bool loggedIn = services.StaffLogin(username, password);
                     if (loggedIn)
                     {
                         Console.Clear();
@@ -77,7 +77,7 @@ namespace VetClinic.UI
                         Console.WriteLine("Wrong login details");
                     }
                     Console.ReadKey();
-             
+
                 }
                 else if (choice == "3")
                 {

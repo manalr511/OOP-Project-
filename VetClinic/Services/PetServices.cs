@@ -220,5 +220,47 @@ namespace VetClinic.Services
             }
             return all;
         }
+
+        //min and max range 
+        public List<Pet> MinAndMax(int min, int max)
+        {
+            List<Pet> all = repo.LoadAll();
+            List<Pet> minandmax = new List<Pet>();
+            foreach(Pet p in all)
+            {
+                if(p.GetAge()>min && p.GetAge() < max)
+                {
+                    minandmax.Add(p);
+                    p.GetAge();
+                }
+            }
+            return minandmax;
+        }
+
+
+        //partial search
+        public List<Pet> SearchByNameP(string nname)
+        {
+            List<Pet> all = repo.LoadAll();
+            List<Pet> namereturn = new List<Pet>();
+            foreach (Pet p in all)
+            {
+                if (p.GetName() == nname )
+                {
+                    namereturn.Add(p);
+                   
+          
+                }
+
+            }
+            return null;
+
+        }
+
+      
+   
+
+        
+
     }
 }

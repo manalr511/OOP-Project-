@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Text;
+using System.Xml.Linq;
 using VetClinic.Models;
 using VetClinic.Services;
 
@@ -36,7 +37,8 @@ namespace VetClinic.UI
                 Console.WriteLine("8. View Assigned Vets");
                 Console.WriteLine("9. View History Logs");
                 Console.WriteLine("10. Manage Staff");
-                Console.WriteLine("11. Logout");
+                Console.WriteLine("11. namesearch,age range, vet search");
+                Console.WriteLine("12. Logout");
                 string choice = Console.ReadLine();
                 if (choice == "1")
                 {  //view all pets
@@ -293,8 +295,67 @@ namespace VetClinic.UI
                             Console.ReadKey();
                         }
                     }
+                }else if (choice=="11")
+                {
+                    Console.Clear();
+
+                    Console.WriteLine("enter name to search: ");
+                    string nname = Console.ReadLine();
+
+                    Console.WriteLine("Enter lowest value: ");
+                    int min = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Enter max value: ");
+                    int max = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Enter vet name");
+                    string vname = Console.ReadLine();
+
+                    //partial search 
+                    List<Pet> pp = service.SearchByNameP(nname);
+                    Pet found = service.SearchByName(nname);
+                    if (found == null)
+                    {
+                        Console.WriteLine("");
+                    }
+                    else
+                    {
+                        Console.WriteLine(found.ToString());
+                    }
+
+
+
+                    List<Pet> list = service.ViewAssignedVets();
+                    //minmax
+                    List<Pet> all = service.MinAndMax(min, max);
+                    if (list.Count == 0)
+                    {
+                        Console.WriteLine("");
+                    }
+                    else
+                    {
+                        foreach (Pet item in all)
+                        {
+                            Console.WriteLine(item.ToString());
+                        }
+                    }
+                   
+                    //exactmatch
+                    List<Pet> llist = service.ViewAssignedVets();
+                    if (list.Count == 0)
+                    {
+                        Console.WriteLine("");
+                    }
+                    else
+                    {
+                        foreach (Pet p in list)
+                        {
+                            Console.WriteLine(p.GetName() + " | " + p.GetAssignedVet());
+                        }
+                    }
+                    Console.ReadKey();
+
                 }
-                else if (choice == "11")
+                else if (choice == "12")
                 {
                     running = false;
                 }
